@@ -53,10 +53,10 @@ class DataViewController: UIViewController {
         
         let circleLayer = CAShapeLayer()
         let radius: CGFloat = 10.0
-        circleLayer.path = UIBezierPath(roundedRect: CGRect(x: newx1, y: newy1, width: 2.0 * radius, height: 2.0 * radius)  , cornerRadius: radius).CGPath
+        circleLayer.path = UIBezierPath(roundedRect: CGRect(x: newx1, y: newy1, width: 2.0 * radius, height: 2.0 * radius)  , cornerRadius: radius).cgPath
 //        circleLayer.position = CGPoint(x: newx1, y: newy1)
-        circleLayer.fillColor = UIColor.redColor().CGColor
-        imageView.image?.drawLayer(circleLayer, inContext: self)
+        circleLayer.fillColor = UIColor.red.cgColor
+//        imageView.image?.drawLayer(circleLayer, inContext: self)
         imageView.layer.addSublayer(circleLayer)
         
         // Set the Center of the Circle
@@ -76,7 +76,7 @@ class DataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject
         self.imageView.image = UIImage(named: imageObject)
@@ -86,7 +86,7 @@ class DataViewController: UIViewController {
         
         override init(frame: CGRect) {
             super.init(frame: frame)
-            self.backgroundColor = UIColor.clearColor()
+            self.backgroundColor = UIColor.clear
         }
         
         required init(coder aDecoder: NSCoder) {
@@ -95,15 +95,15 @@ class DataViewController: UIViewController {
         
         var circleLayer: CAShapeLayer!
         
-        override func drawRect(rect: CGRect) {
+        override func draw(_ rect: CGRect) {
             
-            super.drawRect(rect)
+            super.draw(rect)
             if circleLayer == nil {
                 circleLayer = CAShapeLayer()
                 let radius: CGFloat = 10.0
-                circleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 2.0 * radius, height: 2.0 * radius)  , cornerRadius: radius).CGPath
+                circleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 2.0 * radius, height: 2.0 * radius)  , cornerRadius: radius).cgPath
                 circleLayer.position = CGPoint(x: 100, y: 100)
-                circleLayer.fillColor = UIColor.redColor().CGColor
+                circleLayer.fillColor = UIColor.red.cgColor
                 self.layer.addSublayer(circleLayer)
                 
             }
